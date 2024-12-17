@@ -1,5 +1,5 @@
 body {
-    background-color: #368BC1; /* Dark green background */
+    background-color: #368BC1;
     color: white;
     font-size: 20px;
     font-family: Consolas;
@@ -18,7 +18,8 @@ body {
     margin: 0 auto; /* Center the container */
 }
 .card {
-    background-color: #296d97;
+    background-color: #c3e1ff;
+    color: #0056b3;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -31,7 +32,7 @@ body {
 .card h3 {
     margin: 0;
     font-size: 24px;
-    color: white;
+    color: #0056b3;
 }
 @media (max-width: 1200px) {
     .card-container {
