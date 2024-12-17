@@ -11,10 +11,9 @@ $db = new Database($config["database"]);
 $gifts = $db->query("SELECT * FROM gifts")->fetchAll();
 $letters = $db->query("SELECT * FROM letters")->fetchAll();
 
-// Create an array to count how many children want each gift
 $wish_count = [];
 
-// Count wishes for each gift
+
 foreach ($letters as $letter) {
     // Split the letter text into words
     $letter_text = strtolower($letter['letter_text']);
@@ -31,26 +30,26 @@ foreach ($letters as $letter) {
 
 // Display gifts and their availability
 echo "<div class='container'>"; // Start container
-echo "<h1>Dāvanu pieejamība</h1>"; // Title
+echo "<h1>🎁Dāvanu pieejamība🎁</h1>"; // Title
 echo "<ol>"; // Use ordered list
 foreach ($gifts as $gift) {
     $count_available = $gift["count_available"];
     $count_wanted = isset($wish_count[$gift['id']]) ? $wish_count[$gift['id']] : 0;
 
-    echo "<li>" . htmlspecialchars($gift["name"]) . " - " . $count_available;
+    echo "<li><strong>" . $gift["name"] . " - " . $count_available . "</strong><br>";
 
     // Check if the stock is sufficient
     if ($count_available < $count_wanted) {
-        echo " - <span style='color: red;'>Trūkst!</span> (" . $count_wanted . " bērni vēlas)";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: red;'>Pietrūkst!</span><br><br>";
     } elseif ($count_available > $count_wanted) {
-        echo " - <span style='color: green;'>Pietiek!</span> (" . $count_wanted . " bērni vēlas)";
+        echo "Šo dāvanu vēlas <strong>" . $count_wanted . "</strong> bērni " . " - <span style='color: green;'>Pietiek!</span><br><br>";
     } else {
-        echo " - <span style='color: orange;'>Tieši pietiek!</span> (" . $count_wanted . " bērni vēlas)";
+        echo "Šo dāvanu vēlas <strong>" . $count_wanted . "</strong> bērni " . " - <span style='color: orange;'>Tieši pietiek!</span><br><br>";
     }
 
     echo "</li>";
 }
-echo "</ol>"; // Close ordered list
-echo "</div>"; // End container
+echo "</ol>";
+echo "</div>";
 
 ?>

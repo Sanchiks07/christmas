@@ -11,6 +11,8 @@ $gifts = $db->query("SELECT * FROM gifts")->fetchAll();
 
 $gift_names = array_column($gifts, "name");
 
+echo "<h1>Bērnu vēstules</h1>";
+
 // Card container
 echo "<div class='card-container'>";
 
@@ -27,7 +29,7 @@ foreach ($children as $child) {
     }
 
     if (!empty($child_letters)) {
-        echo "<br>🎁Vēstule:";
+        echo "<br>✉️ Vēstule:";
         foreach ($child_letters as $letter) {
             $highlighted_text = $letter['letter_text'];
             $wishes = [];
@@ -47,7 +49,7 @@ foreach ($children as $child) {
             echo "</div>";
 
             if (!empty($wishes)) {
-                echo "<br>Vēlmju saraksts:";
+                echo "<br>🧸 Vēlmju saraksts:";
                 echo "<ul>";
                 foreach ($wishes as $wish) {
                     echo "<li>$wish</li>";
