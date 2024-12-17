@@ -27,32 +27,20 @@ foreach ($children as $child) {
     };
 
     if (!empty($child_letters)) {
-        
+        echo "<br>🎁Vēstule:";
         foreach ($child_letters as $letter) {
-            // Highlight wishes in the letter text
             $highlighted_text = $letter['letter_text'];
             foreach ($gift_names as $gift) {
-                // Use a regex to highlight the gift names in the letter text
-                $highlighted_text = preg_replace("/\b" . preg_quote($gift, '/') . "\b/i", "<strong style='color: red;'>$gift</strong>", $highlighted_text);
+                $highlighted_text = preg_replace("/\b" . preg_quote($gift, '/') . "\b/i", "<strong>" . $gift . "</strong>", $highlighted_text);
             }
 
-            echo "<br>🎁Vēstule:";
             echo "<div class='letter-card'>";
-            echo "<p>" . $letter['letter_text'] . "</p>";
+            echo "<p>" . nl2br(htmlspecialchars($highlighted_text)) . "</p>"; // Display highlighted letter text
             echo "</div>";
-
-            echo "<h4>Vēlmju saraksts:</h4>";
-            echo "<ul>";
-            foreach ($gift_names as $gift) {
-                if (stripos($letter['letter_text'], $gift) !== false) {
-                    echo "<li>" . htmlspecialchars($gift) . "</li>"; // List each wish
-                }
-            }
-            echo "</ul>";
         }
     };
 
-    echo "</div>"; // Close card
+    echo "</div>";
 
 }
 
