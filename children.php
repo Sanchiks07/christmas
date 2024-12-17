@@ -1,6 +1,6 @@
 <?php
 
-echo "<link rel='stylesheet' href='styles.css'>";
+echo "<link rel='stylesheet' href='children-styles.css'>";
 require "Database.php";
 $config = require ("config.php");
 

@@ -1,0 +1,28 @@
+body {
+    background-color: #368BC1;
+    color: white;
+    font-size: 20px;
+    font-family: Consolas;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+ol {
+    padding: 0;
+    list-style-position: inside;
+}
+li {
+    margin: 10px 0;
+    font-size: 22px;
+}
+span {
+    font-weight: bold; /* Make status text bold */
+}
