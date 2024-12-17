@@ -1,0 +1,34 @@
+body {
+    overflow: auto; /* Prevent scrollbars from appearing */
+}
+
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden;
+    z-index: 9999; /* Ensure it appears above other content */
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background-image: url('snowflake.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+    pointer-events: none; /* Allow clicks to pass through */
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Fall to the bottom of the viewport */
+    }
+}

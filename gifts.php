@@ -1,6 +1,7 @@
 <?php
 
 echo "<link rel='stylesheet' href='gifts-styles.css'>";
+echo "<link rel='stylesheet' href='snowfall.css'>";
 
 require "Database.php";
 $config = require ("config.php");
@@ -29,6 +30,7 @@ foreach ($letters as $letter) {
 }
 
 // Display gifts and their availability
+echo "<div class='snowfall'></div>";
 echo "<div class='container'>"; // Start container
 echo "<h1>🎁Dāvanu pieejamība🎁</h1>"; // Title
 echo "<ol>"; // Use ordered list
@@ -40,11 +42,11 @@ foreach ($gifts as $gift) {
 
     // Check if the stock is sufficient
     if ($count_available < $count_wanted) {
-        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: red;'>Pietrūkst!</span><br><br>";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērns(i) " . " - <span style='color: red;'>Pietrūkst!</span><br><br>";
     } elseif ($count_available > $count_wanted) {
-        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: green;'>Pietiek!</span><br><br>";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērns(i) " . " - <span style='color: green;'>Pietiek!</span><br><br>";
     } else {
-        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: orange;'>Tieši pietiek!</span><br><br>";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērns(i) " . " - <span style='color: orange;'>Tieši pietiek!</span><br><br>";
     }
 
     echo "</li>";
@@ -53,3 +55,5 @@ echo "</ol>";
 echo "</div>";
 
 ?>
+
+<script src='snowfall.js'></script>

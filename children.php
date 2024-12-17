@@ -1,6 +1,8 @@
 <?php
 
 echo "<link rel='stylesheet' href='children-styles.css'>";
+echo "<link rel='stylesheet' href='snowfall.css'>";
+
 require "Database.php";
 $config = require ("config.php");
 
@@ -12,7 +14,7 @@ $gifts = $db->query("SELECT * FROM gifts")->fetchAll();
 $gift_names = array_column($gifts, "name");
 
 echo "<h1>Bērnu vēstules</h1>";
-
+echo "<div class='snowfall'></div>";
 // Card container
 echo "<div class='card-container'>";
 
@@ -65,3 +67,5 @@ foreach ($children as $child) {
 echo "</div>"; // Close card container
 
 ?>
+
+<script src='snowfall.js'></script>
