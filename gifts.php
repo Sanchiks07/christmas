@@ -58,7 +58,7 @@ foreach ($letters as $letter) {
 // Display gifts and their availability
 echo "<div class='snowfall'></div>";
 echo "<div class='container'>"; // Start container
-echo "<h1>🎁 Dāvanu pieejamība 🎁</h1>"; // Title
+echo "<h1>🎁 Dāvanu saraksts 🎁</h1>"; // Title
 echo "<ol>"; // Use ordered list
 foreach ($gifts as $gift) {
     $count_available = $gift["count_available"];
@@ -78,6 +78,10 @@ foreach ($gifts as $gift) {
     echo "</li>";
 }
 echo "</ol>";
+echo "</div>";
+
+echo "<br><div class='link'>";
+echo "<a href='children.php'>Skatīt Bērnu Vēstules</a>";
 echo "</div>";
 
 ?>

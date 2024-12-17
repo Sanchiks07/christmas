@@ -33,7 +33,7 @@ foreach ($average_grades as $student_id => $data) {
     $average_grades[$student_id]['average'] = $data['total'] / $data['count'];
 }
 
-echo "<h1>Bērnu vēstules</h1>";
+echo "<h1>🎅🏻Bērnu vēstules🎅🏻</h1>";
 echo "<div class='snowfall'></div>";
 // Card container
 echo "<div class='card-container'>";
@@ -95,6 +95,9 @@ foreach ($children as $child) {
 
 echo "</div>"; // Close card container
 
+echo "<div class='link'>";
+echo "<a href='gifts.php'>Skatīt Dāvanu Sarakstu</a>";
+echo "</div>";
 ?>
 
 <script src='snowfall.js'></script>
