@@ -3,12 +3,12 @@
 require "Database.php";
 
 $db = new Database($config["database"]);
-$posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
+$kids = $db->query("SELECT * FROM children")->fetchAll(PDO::FETCH_ASSOC);
 
 // Ar foreach izvadīt content
 echo "<ul>";
-foreach ($posts as $post) {
-    echo "<li>" . $post["content"] . "</li>";
+foreach ($kids as $kid) {
+    echo "<li>" . $kid["firstname, middlename, surname, age"] . "</li>";
 };
 echo "</ul>";
 
