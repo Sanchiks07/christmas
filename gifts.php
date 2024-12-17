@@ -55,18 +55,16 @@ foreach ($letters as $letter) {
     }
 }
 
-// Display gifts and their availability
 echo "<div class='snowfall'></div>";
-echo "<div class='container'>"; // Start container
-echo "<h1>🎁 Dāvanu saraksts 🎁</h1>"; // Title
-echo "<ol>"; // Use ordered list
+echo "<h1>🎁 Dāvanu saraksts 🎁</h1>";
+echo "<div class='container'>";
+echo "<ol>";
 foreach ($gifts as $gift) {
     $count_available = $gift["count_available"];
     $count_wanted = isset($wish_count[$gift['id']]) ? $wish_count[$gift['id']] : 0;
 
     echo "<li><strong>" . $gift["name"] . " - " . $count_available . "</strong><br>";
 
-    // Check if the stock is sufficient
     if ($count_available < $count_wanted) {
         echo "Šo dāvanu vēlas " . $count_wanted . " bērns(i) " . " - <span style='color: red;'>Pietrūkst!</span><br><br>";
     } elseif ($count_available > $count_wanted) {
