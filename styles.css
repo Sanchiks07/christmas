@@ -1,0 +1,37 @@
+body {
+    background-color: #2E8B57; /* Dark green background */
+    color: white;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the cards */
+    max-width: 1200px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container */
+}
+.card {
+    background-color: #C72C41; /* Red background for cards */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(30% - 40px); /* 4 columns with margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #FFD700; /* Gold border */
+    transition: transform 0.2s; /* Animation on hover */
+}
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+.card h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #FFD700; /* Gold color for the name */
+}
+
