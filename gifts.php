@@ -42,9 +42,9 @@ foreach ($gifts as $gift) {
     if ($count_available < $count_wanted) {
         echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: red;'>Pietrūkst!</span><br><br>";
     } elseif ($count_available > $count_wanted) {
-        echo "Šo dāvanu vēlas <strong>" . $count_wanted . "</strong> bērni " . " - <span style='color: green;'>Pietiek!</span><br><br>";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: green;'>Pietiek!</span><br><br>";
     } else {
-        echo "Šo dāvanu vēlas <strong>" . $count_wanted . "</strong> bērni " . " - <span style='color: orange;'>Tieši pietiek!</span><br><br>";
+        echo "Šo dāvanu vēlas " . $count_wanted . " bērni " . " - <span style='color: orange;'>Tieši pietiek!</span><br><br>";
     }
 
     echo "</li>";

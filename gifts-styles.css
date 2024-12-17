@@ -7,28 +7,30 @@ body {
     place-items: center;
 }
 
+/* container ar visu list */
 .container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #e7f3ff;
+    color: #0056b3;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     max-width: 1000px;
     width: 90%;
 }
-
 ol {
     padding: 0;
     list-style-position: inside;
     column-count: 2;
     column-gap: 20px;
 }
-
 li {
     margin: 10px 0; /* Space between list items */
     font-size: 22px;
 }
-
+ol li::marker {
+    font-weight: bold; /* Make the list item numbers bold */
+}
 span {
     font-weight: bold;
 }
