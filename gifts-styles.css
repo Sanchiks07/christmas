@@ -7,7 +7,7 @@ body {
     place-items: center;
 }
 
-/* links, kurš pāriet uz dāvanu sarakstu */
+/* Links, kurš pāriet uz bērnu vēstulēm */
 .link {
     text-align: center;
     margin-top: 20px;
@@ -44,11 +44,11 @@ ol {
     column-gap: 20px;
 }
 li {
-    margin: 10px 0; /* Space between list items */
+    margin: 10px 0;
     font-size: 22px;
 }
 ol li::marker {
-    font-weight: bold; /* Make the list item numbers bold */
+    font-weight: bold; /* Kārtas nummuru padara bold */
 }
 span {
     font-weight: bold;

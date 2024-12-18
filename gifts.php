@@ -8,12 +8,11 @@ $config = require ("config.php");
 
 $db = new Database($config["database"]);
 
-// Fetch gifts, letters, and grades
 $gifts = $db->query("SELECT * FROM gifts")->fetchAll();
 $letters = $db->query("SELECT * FROM letters")->fetchAll();
 $grades = $db->query("SELECT student_id, grade FROM grades")->fetchAll();
 
-// Calculate average grades for each child
+// Aprēķina katra bērna vidējo
 $average_grades = [];
 foreach ($grades as $grade) {
     $student_id = $grade['student_id'];
@@ -27,24 +26,23 @@ foreach ($grades as $grade) {
     $average_grades[$student_id]['count']++;
 }
 
-// Calculate the average for each child
 foreach ($average_grades as $student_id => $data) {
     $average_grades[$student_id]['average'] = $data['total'] / $data['count'];
 }
 
-// Count wishes only for children with an average grade of 5 or above
+// Aprēķina vēlmes
 $wish_count = [];
 
 foreach ($letters as $letter) {
-    $student_id = $letter['sender_id']; // Assuming the letter has a sender_id field
+    $student_id = $letter['sender_id'];
     $average = isset($average_grades[$student_id]) ? $average_grades[$student_id]['average'] : 0;
 
-    // Only process letters from children with an average grade of 5 or above
+    // Saskaiti tās bērnu vēlmes, kuriem vidējā ir virs vai ir tieši 5
     if ($average >= 5) {
-        // Split the letter text into words
+        // Sadala vēstuli pa vārdiem
         $letter_text = strtolower($letter['letter_text']);
         foreach ($gifts as $gift) {
-            // Check if the gift is mentioned in the letter
+            // Pārbauda vai dāva ir vēstulē
             if (stripos($letter_text, strtolower($gift['name'])) !== false) {
                 if (!isset($wish_count[$gift['id']])) {
                     $wish_count[$gift['id']] = 0;
@@ -55,7 +53,8 @@ foreach ($letters as $letter) {
     }
 }
 
-echo "<div class='snowfall'></div>";
+
+echo "<div class='snowfall'></div>"; // sniega animācija
 echo "<h1>🎁 Dāvanu saraksts 🎁</h1>";
 echo "<div class='container'>";
 echo "<ol>";
