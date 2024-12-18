@@ -88,7 +88,7 @@ foreach ($children as $child) {
             }
         }
     }
-
+    
     echo "</div>"; // Close card
 }
 
