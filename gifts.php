@@ -56,8 +56,8 @@ foreach ($letters as $letter) {
 
 echo "<div class='snowfall'></div>"; // sniega animācija
 echo "<h1>🎁 Dāvanu saraksts 🎁</h1>";
-echo "<div class='container'>";
-echo "<ol>";
+echo "<div class='container'>"; // Container lists ar visām dāvanām
+echo "<ol class='gift-list'>";
 foreach ($gifts as $gift) {
     $count_available = $gift["count_available"];
     $count_wanted = isset($wish_count[$gift['id']]) ? $wish_count[$gift['id']] : 0;

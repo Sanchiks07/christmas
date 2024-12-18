@@ -43,12 +43,18 @@ ol {
     column-count: 2;
     column-gap: 20px;
 }
-li {
-    margin: 10px 0;
-    font-size: 22px;
+.gift-list {
+    list-style-type: none; /* Noņem default list markers */
+    padding: 0;
 }
-ol li::marker {
-    font-weight: bold; /* Kārtas nummuru padara bold */
+.gift-list li {
+    position: relative;
+    padding-left: 30px;
+}
+.gift-list li::before {
+    content: '🎁 ';
+    font-size: 20px;
+    line-height: 1; /* Vienā līnjā ar tekstu */
 }
 span {
     font-weight: bold;
