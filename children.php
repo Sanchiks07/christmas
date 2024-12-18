@@ -35,7 +35,7 @@ foreach ($average_grades as $student_id => $data) {
 
 echo "<h1>🎅🏻Bērnu vēstules🎅🏻</h1>";
 echo "<div class='snowfall'></div>";
-// Card container
+// Card containe
 echo "<div class='card-container'>";
 
 // Function to determine color based on average grade
@@ -75,7 +75,6 @@ foreach ($children as $child) {
             }
     
             echo "<div class='letter-card'>";
-            // Only escape the letter text, not the HTML tags
             echo "<p>" . nl2br($highlighted_text) . "</p>"; // Display highlighted letter text
             echo "</div>";
 
