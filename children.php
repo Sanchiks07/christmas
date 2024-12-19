@@ -14,7 +14,6 @@ $grades = $db->query("SELECT student_id, grade FROM grades")->fetchAll();
 
 $gift_names = array_column($gifts, "name");
 
-// Initialize an array to hold total grades and counts
 $average_grades = [];
 foreach ($grades as $grade) {
     $student_id = $grade['student_id'];
@@ -28,29 +27,26 @@ foreach ($grades as $grade) {
     $average_grades[$student_id]['count']++;
 }
 
-// Calculate average for each child
+// Aprēķina vidējo visiem bērniem
 foreach ($average_grades as $student_id => $data) {
     $average_grades[$student_id]['average'] = $data['total'] / $data['count'];
 }
 
 echo "<h1>🎅🏻Bērnu vēstules🎅🏻</h1>";
 echo "<div class='snowfall'></div>";
-// Card containe
 echo "<div class='card-container'>";
 
-// Function to determine color based on average grade
 function getGiftColor($average) {
     return $average < 5 ? 'red' : 'green';
 }
 
-// Display data in card format
+// Izvada vidējo atzīmi
 foreach ($children as $child) {
     echo "<div class='card'>";
     echo "<h3>🎄" . $child["firstname"] . " " . $child["middlename"] . " " . $child["surname"] . " - " . $child["age"] . "🎄</h3>";
 
-    // Display average grade
     $average = isset($average_grades[$child['id']]) ? $average_grades[$child['id']]['average'] : 0;
-    echo "<p>Vidējā atzīme: " . number_format($average, 2) . "</p>"; // Display average grade with 2 decimal places
+    echo "<p>Vidējā atzīme: " . number_format($average, 2) . "</p>";
 
     $child_letters = [];
     foreach ($letters as $letter) {
@@ -66,7 +62,7 @@ foreach ($children as $child) {
             $wishes = [];
 
             foreach ($gift_names as $gift) {
-                // Highlight the gift names in the letter text
+                // Nosauktās dāvanas vēstulē pataisa bold
                 $highlighted_text = preg_replace("/\b" . preg_quote($gift, '/') . "\b/i", "<strong style='color: " . getGiftColor($average) . ";'>" . $gift . "</strong>", $highlighted_text);
 
                 if (stripos($letter['letter_text'], $gift) !== false) {
@@ -75,24 +71,24 @@ foreach ($children as $child) {
             }
     
             echo "<div class='letter-card'>";
-            echo "<p>" . nl2br($highlighted_text) . "</p>"; // Display highlighted letter text
+            echo "<p>" . nl2br($highlighted_text) . "</p>";
             echo "</div>";
 
             if (!empty($wishes)) {
                 echo "<br>🧸 Vēlmju saraksts:";
                 echo "<ul>";
                 foreach ($wishes as $wish) {
-                    echo "<li style='color: " . getGiftColor($average) . ";'>$wish</li>"; // Display wishes with color
+                    echo "<li style='color: " . getGiftColor($average) . ";'>$wish</li>";
                 }
                 echo "</ul>";
             }
         }
     }
     
-    echo "</div>"; // Close card
+    echo "</div>";
 }
 
-echo "</div>"; // Close card container
+echo "</div>";
 
 echo "<div class='link'>";
 echo "<a href='gifts.php'>Skatīt Dāvanu Sarakstu</a>";
